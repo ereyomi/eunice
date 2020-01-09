@@ -1,0 +1,64 @@
+<header>
+        
+    <div class="header-sm" [ngClass]="{'change-nav': headerbackgroundChange}">
+
+        <div class="toggle-Div">
+            <div class="btn-container" [ngClass]="{'change': toggle}" (click)="toggleMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="logo-Div">
+            <h2>Eunice</h2>
+        </div>
+
+        <nav class="mainnav">
+            <ul>
+                <li>
+                    <a [routerLink]="['/posts']" routerLinkActive="active">Home</a> 
+                </li>
+                <li>
+                    <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+        
+    </div>
+    <!--   [ngClass]="{'showLinks-sm': toggle}" ( #mynav [ngStyle]="{'height': navHeight}") -->
+    <nav [ngClass]="{'shownav': toggle}" class="slideinNav"> <!-- change true to toggle later -->
+        <div class="toggle-Div">
+            <div class="btn-container" [ngClass]="{'change': toggle}" (click)="toggleMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+        <ul>
+            <li *ngFor="let link of navLinks">
+                    <a class="mylink" (click)="toRoute(link?.address)" data-address="link.address">  <!--add it here  (click)="ppanel($event)" -->                      
+                        <mat-icon aria-hidden="false" aria-label="icon" *ngIf="link.icon">{{ link?.icon }}</mat-icon>
+                        <span>{{ link.name }}</span>
+                        <button class="panelopen" *ngIf="link.sublink" (click)="panelToggle($event)">&#8250;</button>
+                    </a>
+                   
+                    <div class="panel" #sublink *ngIf="link.sublink">
+                            
+                        <ul class="panel-ul">
+                            <li *ngFor="let sublink of link.sublink" class="panel-list">
+                                    <a (click)="toRouteCategory(sublink.id)">{{ sublink.name }}</a>
+                            </li>
+                        </ul>
+                    </div>                  
+            </li>                     
+            
+        </ul>
+    </nav>
+</header>
+<div [ngClass]="{'nav-overlay': toggle}"></div>
+

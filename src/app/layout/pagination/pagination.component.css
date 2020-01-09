@@ -1,0 +1,30 @@
+.pagination, .pagination-btn{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination{
+    padding: 15px 0px;
+    flex-direction: column;
+}
+.pagination span {
+    color: rgb(204, 54, 86);
+}
+.pagination-btn{
+    flex-direction: row;
+}
+.pagination-btn{
+    width: 100%;
+    display: flex;
+}
+.pagination-btn button{
+    border: none;
+    background:  rgb(231, 71, 106);
+    color: white;
+    padding: 10px 14px;
+    margin: 8px;
+}
+.pagination-btn .Btnchange{
+    background:  rgb(240, 199, 208);
+}

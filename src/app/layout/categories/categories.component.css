@@ -1,0 +1,44 @@
+.categories{
+    width: 100%;
+}
+.box{
+    width: 80%;
+}
+.box header{
+    width: 100%;
+    border-bottom: 2px solid rgb(204, 54, 86);
+}
+.box header h3 {
+    width: 50%;
+    background: rgb(204, 54, 86);
+    color: white;
+    padding: 10px;
+}
+.box section, .box .loader {
+    width: 100%;
+}
+.box section ul{
+    padding: 0;
+    margin: 0;
+}
+.box section ul li {
+    list-style: none;
+    padding: 10px 0px 10px 20px;
+    border-bottom: 1px solid rgb(245, 209, 223);
+}
+.box section ul li a{
+    color: rgb(204, 54, 86); 
+}
+@media screen and (min-width: 700px){
+    .box {
+        width: 70%;
+    }
+    .box header h3 {
+        width: 70%;
+    }
+}
+@media screen and (min-width: 800px){
+    .box header h3 {
+        width: 60%;
+    }
+}

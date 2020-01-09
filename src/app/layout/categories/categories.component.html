@@ -1,0 +1,17 @@
+<div class="categories box">
+    <header>
+        <h3>Categories</h3>
+    </header>
+    <div *ngIf="loading" class="loader">
+        <app-content-loader [type]= "3"></app-content-loader>
+     </div> 
+    <section *ngIf="!loading">
+        <ul>
+            <li *ngFor="let category of myCategories"> 
+                <a [routerLink]="['/category', category.id]" routerLinkActive="active">
+                    {{ category.name }}
+                </a>  
+            </li>
+        </ul>
+    </section>
+</div>

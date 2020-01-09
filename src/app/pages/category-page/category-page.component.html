@@ -1,0 +1,14 @@
+<div class="category-container">
+    <div *ngIf="loading" class="the-post-container">
+       <app-content-loader [type]= "1" *ngFor="let item of counter(1);"></app-content-loader>
+    </div> 
+    <div class="the-category-container" *ngIf="!loading">
+      <app-post *ngFor="let singlePost of posts" [post]="singlePost"></app-post>
+      <app-pagination *ngIf="totalPages" 
+      [allPages]="totalPages" 
+      [currentPage]="mycurrentPage" 
+      [routeToPage]="myroute"
+      [routeToId]="catId"
+      ></app-pagination>
+    </div>    
+</div>

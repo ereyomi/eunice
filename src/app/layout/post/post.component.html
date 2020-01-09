@@ -1,0 +1,33 @@
+<div class="post-container">
+    <div class="featured-img" *ngIf="post.featured_media;else mydefault">
+        <img [src]="post._embedded['wp:featuredmedia']['0'].source_url">
+    </div>
+    <ng-template class="featured" #mydefault>
+        <div class="featured-img">
+            <img src="assets/img/no-image-found.jpg" alt="">
+        </div>        
+    </ng-template>
+    <div class="post-body">
+        <div class="data1">
+            <p class="title">{{ post?.title.rendered }}</p>
+           <!--  <p class="category">{{ post._embedded['wp:term']['0']['0'].name }}</p>
+            <p class="category">{{ post._embedded['wp:term']['0']['1'].name }}</p> -->
+            <p class="category">
+                <span *ngFor="let category of post?._embedded['wp:term']['0']">
+                    {{ category?.name }}
+                </span>
+            </p>
+            <!-- {{ post?.date | date: dateFormat }} -->
+            <p class="date">{{ post?.date | date: 'medium' }} :by {{post?._embedded['author']['0']['name']}}</p>
+        </div>
+        <div class="post-text">
+              <!-- <div [innerHTML]="( post.excerpt.rendered | slice: 0:150 )+'...'"></div>  -->
+              <div [innerHTML]="( post.excerpt.rendered | truncate:[150] )"></div> 
+        </div>
+        <div class="read-more">
+            <a [routerLink]="['/post/', post.id]">read more</a>
+        </div>
+    </div>
+    
+</div>
+

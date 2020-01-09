@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mizar": {
+    "eunice": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mizar",
+            "outputPath": "dist/eunice",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -63,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mizar:build"
+            "browserTarget": "eunice:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mizar:build:production"
+              "browserTarget": "eunice:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mizar:build"
+            "browserTarget": "eunice:build"
           }
         },
         "test": {
@@ -111,15 +112,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mizar:serve"
+            "devServerTarget": "eunice:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mizar:serve:production"
+              "devServerTarget": "eunice:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "mizar"
+    }
+  },
+  "defaultProject": "eunice"
 }

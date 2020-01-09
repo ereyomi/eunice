@@ -1,0 +1,33 @@
+<div class="display-container">
+   <div class="display-post">  
+           
+        <div *ngIf="loading">
+            <app-content-loader [type]= "2"></app-content-loader>
+        </div> 
+        <div *ngIf="!loading" class="post">
+            <div class="post-featured-img">
+                <div class="featured" *ngIf="post.featured_media;else mydefault">
+                    <img [src]="post._embedded['wp:featuredmedia']['0'].source_url">
+                </div>
+                <ng-template class="featured" #mydefault>
+                    <div class="featured">
+                        <img src="assets/img/no-image-found.jpg" alt="">
+                    </div>        
+                </ng-template>
+            </div>
+           
+        
+            <div class="data1">
+                <p class="title">{{ post?.title.rendered }}</p>
+                <p class="category">love</p>
+            </div>
+            <div class="post-text">
+                <div [innerHTML]="post.content.rendered"></div> 
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!loading" class="comment">
+        <app-comments [postId]="post.id"></app-comments>
+   </div>  
+    
+</div>

@@ -1,0 +1,8 @@
+<div class="pagination" *ngIf="allPages > 1">
+    <span>page {{ currentPage }} of {{ allPages }}</span>
+    <div class="pagination-btn">
+        <!-- [ngStyle]="{'background': !next_page ? 'red' : 'blue'}" -->
+        <button (click)="getPagePost(prev_page)" [disabled]="!prev_page" [ngClass]="{'Btnchange': !prev_page}">Previous</button>
+    <button (click)="getPagePost(next_page)" [disabled]="!next_page" [ngClass]="{'Btnchange': !next_page}">Next</button> 
+    </div>   
+</div>

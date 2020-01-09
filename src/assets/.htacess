@@ -1,0 +1,33 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+</IfModule>
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+# END WordPress
+
+@nabilzidane what about moving the line SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1 out of the block # BEGIN WordPress <-> # END WordPress.
+Put that line after # END WordPress and try again. Hope that fixes the problem. :)
+
+
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+RewriteBase /wordpress/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+</IfModule>
+
+# END WordPress
