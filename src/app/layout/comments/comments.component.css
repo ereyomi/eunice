@@ -76,6 +76,16 @@
 .postYourComment form button:hover{
     background: rgb(218, 83, 112);
 }
-.commentstatus{
+.commentstatusmsg{
+    padding: 15px 0px;
     color: rgb(218, 83, 112);
+}
+.commentstatusmsg mat-icon{
+    font-size: 60px;
+}
+.commentLoader{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

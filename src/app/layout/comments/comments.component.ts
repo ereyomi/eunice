@@ -23,16 +23,17 @@ export class CommentsComponent implements OnInit {
 
   //comment sucess
   commentstatus: boolean = false;
-  request: { icon: string; message: string; };
-  commentstatustimingout: boolean = true;
+  
+  commentstatustimingout: boolean;
   private success = {
     icon: 'done',
     message: 'posted'
   }
   private failure = {
     icon: 'sms_failed',
-    message: 'we are unable to post your comment at theis moment. Please check your network and try again.'
+    message: 'we are unable to post your comment at this moment. Please check your network and try again.'
   }
+  request: { icon: string; message: string; } = this.failure;
   //----------
   postComments: any;
   showLoader: boolean = false;
@@ -77,17 +78,20 @@ export class CommentsComponent implements OnInit {
   commentStatus(passInboolean: boolean){
     this.commentstatus = passInboolean;
 
-    //timeout should start
-    this.commentstatustimingout = false;
+    
 
     if(this.commentstatus === true){
-      this.request = this.success;
-    }else{
+      //timeout should start
+    this.commentstatustimingout = true;
+
       this.request = this.failure;
+
+      //remove after 8s
+      setTimeout(()=>{
+        this.commentstatustimingout = false
+      }, 8000);
     }
-    setTimeout(()=>{
-      this.commentstatustimingout = true
-    }, 8000);
+    
   }
   postComment(){
     //hide form while trying to submit
@@ -117,7 +121,7 @@ export class CommentsComponent implements OnInit {
         this.showLoader = false;
 
         //sucess msg display 
-        this.commentStatus(true);
+        this.commentStatus(false);
 
         this.onload();
       },
@@ -126,7 +130,7 @@ export class CommentsComponent implements OnInit {
         //remove loader
         this.showLoader = false;
         //sucess msg display 
-        this.commentStatus(false);
+        this.commentStatus(true);
         //hide form while trying to submit
         this.formLoaderexpression = false;
       } 
