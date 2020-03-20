@@ -26,11 +26,10 @@ export class DisplayPostComponent implements OnInit {
               this.post = res;
               console.log(this.post);
 
-              //remove content loader 
-              if(this.post || this.post !== null || this.post !== 'undefined'){
+              // remove content loader 
+              if (this.post || this.post !== null || this.post !== 'undefined'){
                 this.loading = false;
               }
-              
             }
           );
         }catch(e){

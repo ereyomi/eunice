@@ -8,15 +8,14 @@ import { Config } from 'protractor';
   providedIn: 'root'
 })
 export class WpService {
-  //private domain = 'https://ereyomiblog.000webhostapp.com/';
-  private domain = 'http://localhost:80/';
-  private PostEndpoint = `${this.domain}wordpress/wp-json/wp/v2/posts`;
-  //private PostEndpoint = 'https://ereyomiblog.000webhostapp.com/wordpress/wp-json/wp/v2/posts';
-  private commentEndpoint = `${this.domain}wordpress/wp-json/wp/v2/comments`;
-  private categoriesEndpoint = `${this.domain}wordpress/wp-json/wp/v2/categories`;
-  private tokenUrl = `${this.domain}wordpress/wp-json/jwt-auth/v1/token`;
-  private getPostBycategory = `${this.domain}wordpress/wp-json/wp/v2/posts?categories=`;
-  private commentParent = `${this.domain}wordpress/index.php/wp-json/wp/v2/comments?parent=13`;
+  private domain = 'https://ereyomiblog.000webhostapp.com/';
+  // private domain = 'http://localhost:80/wordpress/';
+  private PostEndpoint = `${this.domain}wp-json/wp/v2/posts`;
+  private commentEndpoint = `${this.domain}wp-json/wp/v2/comments`;
+  private categoriesEndpoint = `${this.domain}wp-json/wp/v2/categories`;
+  private tokenUrl = `${this.domain}wp-json/jwt-auth/v1/token`;
+  private getPostBycategory = `${this.domain}wp-json/wp/v2/posts?categories=`;
+  private commentParent = `${this.domain}index.php/wp-json/wp/v2/comments?parent=13`;
   storeToken: Observable<Object>;
   tokenData: any;
   query: string;
