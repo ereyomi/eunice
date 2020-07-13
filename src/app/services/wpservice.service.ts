@@ -8,8 +8,8 @@ import { Config } from 'protractor';
   providedIn: 'root'
 })
 export class WpService {
-  private domain = 'https://ereyomiblog.000webhostapp.com/';
-  // private domain = 'http://localhost:80/wordpress/';
+  //private domain = 'https://ereyomiblog.000webhostapp.com/';
+  private domain = 'http://localhost:80/wordpress/';
   private PostEndpoint = `${this.domain}wp-json/wp/v2/posts`;
   private commentEndpoint = `${this.domain}wp-json/wp/v2/comments`;
   private categoriesEndpoint = `${this.domain}wp-json/wp/v2/categories`;

@@ -7,11 +7,12 @@ export class TruncatePipe implements PipeTransform {
 
     /* use in html {{ str | truncate:[20] }} or {{ str | truncate:[20, '...'] }} */
   transform(value: string, args: number[]): any {
-    /* transform(value: string, args: string[]): any { 
+    /* transform(value: string, args: string[]): any {
     const limit = args.length > 0 ? parseInt(args[0], 10) : 150; */
     const limit = args.length > 0 ? args[0] : 150;
     const trail = args.length > 1 ? args[1] : '...';
-    return value.length > limit ? value.substring(0, limit) + trail : value
+    // tslint:disable-next-line:max-line-length
+    return value.length > limit ? value.substring(0, limit) + trail : value;  /* use in html {{ str | truncate:[20] }} or {{ str | truncate:[20, '...'] }} */
   }
 
 }
